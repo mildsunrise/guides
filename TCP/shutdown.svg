@@ -1,0 +1,742 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="277.03073mm"
+   height="149.76509mm"
+   viewBox="0 0 1047.0454 566.04132"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   sodipodi:docname="shutdown3.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <title
+     id="title48">How TCP connections die</title>
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="mm"
+     inkscape:zoom="1.01"
+     inkscape:cx="510.39604"
+     inkscape:cy="300"
+     inkscape:window-width="1920"
+     inkscape:window-height="1011"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     showguides="false" />
+  <defs
+     id="defs1">
+    <marker
+       style="overflow:visible"
+       id="marker44"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Wide, rounded arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         style="fill:none;stroke:context-stroke;stroke-width:1;stroke-linecap:round"
+         d="M 3,-3 0,0 3,3"
+         transform="rotate(180,0.125,0)"
+         sodipodi:nodetypes="ccc"
+         id="path44" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="ArrowWide"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Wide arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         style="fill:none;stroke:context-stroke;stroke-width:1;stroke-linecap:butt"
+         d="M 3,-3 0,0 3,3"
+         transform="rotate(180,0.125,0)"
+         sodipodi:nodetypes="ccc"
+         id="path1" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker41"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Wide, rounded arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         style="fill:none;stroke:context-stroke;stroke-width:1;stroke-linecap:round"
+         d="M 3,-3 0,0 3,3"
+         transform="rotate(180,0.125,0)"
+         sodipodi:nodetypes="ccc"
+         id="path41" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="ArrowWideRounded"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Wide, rounded arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         style="fill:none;stroke:context-stroke;stroke-width:1;stroke-linecap:round"
+         d="M 3,-3 0,0 3,3"
+         transform="rotate(180,0.125,0)"
+         sodipodi:nodetypes="ccc"
+         id="path2" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="ArrowWideRounded-9"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Wide, rounded arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         style="fill:none;stroke:context-stroke;stroke-width:1;stroke-linecap:round"
+         d="M 3,-3 0,0 3,3"
+         transform="rotate(180,0.125,0)"
+         sodipodi:nodetypes="ccc"
+         id="path2-2" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="ArrowWide-9"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Wide arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         style="fill:none;stroke:context-stroke;stroke-width:1;stroke-linecap:butt"
+         d="M 3,-3 0,0 3,3"
+         transform="rotate(180,0.125,0)"
+         sodipodi:nodetypes="ccc"
+         id="path1-4" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="ArrowWideRounded-1"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Wide, rounded arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         style="fill:none;stroke:context-stroke;stroke-width:1;stroke-linecap:round"
+         d="M 3,-3 0,0 3,3"
+         transform="rotate(180,0.125,0)"
+         sodipodi:nodetypes="ccc"
+         id="path2-28" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="ArrowWideRounded-1-0"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Wide, rounded arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         style="fill:none;stroke:context-stroke;stroke-width:1;stroke-linecap:round"
+         d="M 3,-3 0,0 3,3"
+         transform="rotate(180,0.125,0)"
+         sodipodi:nodetypes="ccc"
+         id="path2-28-8" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="ArrowWideRounded-1-03"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Wide, rounded arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         style="fill:none;stroke:context-stroke;stroke-width:1;stroke-linecap:round"
+         d="M 3,-3 0,0 3,3"
+         transform="rotate(180,0.125,0)"
+         sodipodi:nodetypes="ccc"
+         id="path2-28-4" />
+    </marker>
+  </defs>
+  <g
+     inkscape:label="bg"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-160.32289,-382.76312)"
+     sodipodi:insensitive="true">
+    <rect
+       style="fill:#e5e9f0;stroke:none;stroke-width:2.41789;stroke-dasharray:2.41789, 2.41789"
+       id="rect1"
+       width="1047.0454"
+       height="566.04132"
+       x="160.32289"
+       y="382.76312" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="fg"
+     transform="translate(-160.32289,-382.76312)">
+    <g
+       id="g47"
+       transform="translate(-3.6022864)">
+      <text
+         xml:space="preserve"
+         style="font-size:18.6667px;line-height:21.8px;font-family:Roboto;-inkscape-font-specification:Roboto;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#2e3440;stroke:none;stroke-width:2.26772;stroke-dasharray:2.26772, 2.26772"
+         x="230.92355"
+         y="626.47382"
+         id="text1"><tspan
+           sodipodi:role="line"
+           id="tspan1"
+           x="230.92355"
+           y="626.47382">Have we<tspan
+   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Roboto;-inkscape-font-specification:'Roboto Bold'"
+   id="tspan6" /></tspan><tspan
+           sodipodi:role="line"
+           x="230.92355"
+           y="648.2738"
+           id="tspan5"><tspan
+   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Roboto;-inkscape-font-specification:'Roboto Bold'"
+   id="tspan30">received</tspan> a FIN?</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:18.6667px;line-height:21.8px;font-family:Roboto;-inkscape-font-specification:Roboto;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#2e3440;stroke:none;stroke-width:2.26772;stroke-dasharray:2.26772, 2.26772"
+         x="322.43762"
+         y="558.89301"
+         id="text1-5"><tspan
+           sodipodi:role="line"
+           x="322.43762"
+           y="558.89301"
+           id="tspan4">Have we</tspan><tspan
+           sodipodi:role="line"
+           x="322.43762"
+           y="580.69299"
+           id="tspan31"><tspan
+   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Roboto;-inkscape-font-specification:'Roboto Bold'"
+   id="tspan32">sent </tspan>a FIN?</tspan></text>
+      <path
+         style="fill:none;stroke:#2e3440;stroke-width:2.26772;stroke-linecap:round;stroke-dasharray:none"
+         d="M 232.52255,546.72931 403.46121,646.1867"
+         id="path7"
+         sodipodi:nodetypes="cc" />
+      <g
+         id="g20"
+         transform="translate(176.42001,193.23917)">
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:32px;line-height:37.3715px;font-family:Roboto;-inkscape-font-specification:'Roboto Bold';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#2e3440;stroke:none;stroke-width:2.26772;stroke-linecap:round;stroke-dasharray:none"
+           x="359.81262"
+           y="412.58624"
+           id="text8"><tspan
+             sodipodi:role="line"
+             id="tspan8"
+             x="359.81262"
+             y="412.58624">No</tspan></text>
+      </g>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:32px;line-height:37.3715px;font-family:Roboto;-inkscape-font-specification:'Roboto Bold';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#2e3440;stroke:none;stroke-width:2.26772;stroke-linecap:round;stroke-dasharray:none"
+         x="229.90402"
+         y="718.315"
+         id="text8-3"><tspan
+           sodipodi:role="line"
+           id="tspan8-6"
+           x="229.90402"
+           y="718.315">No</tspan></text>
+      <g
+         id="g18-8"
+         transform="translate(866.02943,-40.825694)">
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:32px;line-height:37.3715px;font-family:Roboto;-inkscape-font-specification:'Roboto Bold';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#2e3440;stroke:none;stroke-width:2.26772;stroke-linecap:round;stroke-dasharray:none"
+           x="104.26797"
+           y="647.40344"
+           id="text8-3-3-4"><tspan
+             sodipodi:role="line"
+             id="tspan8-6-6-3"
+             x="104.26797"
+             y="647.40344">Yes,</tspan><tspan
+             sodipodi:role="line"
+             x="104.26797"
+             y="684.77496"
+             id="tspan15-1" /></text>
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:18.6667px;line-height:19px;font-family:Roboto;-inkscape-font-specification:'Roboto Bold';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#2e3440;stroke:none;stroke-width:2.26772;stroke-linecap:round;stroke-dasharray:none"
+           x="176.33194"
+           y="631.74255"
+           id="text16-4"><tspan
+             sodipodi:role="line"
+             id="tspan16-9"
+             x="176.33194"
+             y="631.74255"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:19px;font-family:Roboto;-inkscape-font-specification:Roboto">and it <tspan
+   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:19px;font-family:Roboto;-inkscape-font-specification:'Roboto Bold'"
+   id="tspan18-2">has</tspan></tspan><tspan
+             sodipodi:role="line"
+             x="176.33194"
+             y="650.74255"
+             id="tspan17-0"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:19px;font-family:Roboto;-inkscape-font-specification:Roboto">been ACKed</tspan></text>
+      </g>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:29.3333px;line-height:34.2572px;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed,  Medium';text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#007800;stroke:none;stroke-width:2.26772;stroke-linecap:round;stroke-dasharray:none"
+         x="556.89734"
+         y="717.52332"
+         id="text19"><tspan
+           sodipodi:role="line"
+           id="tspan19"
+           x="556.89734"
+           y="717.52332">ESTABLISHED</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:29.3333px;line-height:34.2572px;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed,  Medium';text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#75507b;stroke:none;stroke-width:2.26772;stroke-linecap:round;stroke-dasharray:none"
+         x="556.70398"
+         y="892.11377"
+         id="text19-5"><tspan
+           sodipodi:role="line"
+           id="tspan19-0"
+           x="556.70398"
+           y="892.11377">CLOSE WAIT</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:29.3333px;line-height:34.2572px;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed,  Medium';text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#c17d11;stroke:none;stroke-width:2.26772;stroke-linecap:round;stroke-dasharray:none"
+         x="811.42114"
+         y="717.55914"
+         id="text19-5-1-2"><tspan
+           sodipodi:role="line"
+           id="tspan19-0-7-6"
+           x="811.42114"
+           y="717.55914">FIN WAIT 1</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:29.3333px;line-height:34.2572px;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed,  Medium';text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#c17d11;stroke:none;stroke-width:2.26772;stroke-linecap:round;stroke-dasharray:none"
+         x="1059.2162"
+         y="717.66656"
+         id="text19-5-1-2-1"><tspan
+           sodipodi:role="line"
+           id="tspan19-0-7-6-5"
+           x="1059.2162"
+           y="717.66656">FIN WAIT 2</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:29.3333px;line-height:34.2572px;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed,  Medium';text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#c17d11;stroke:none;stroke-width:2.26772;stroke-linecap:round;stroke-dasharray:none"
+         x="810.00317"
+         y="829.69141"
+         id="text19-5-1"><tspan
+           sodipodi:role="line"
+           id="tspan19-0-7"
+           x="810.00317"
+           y="829.69141">CLOSING</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:29.3333px;line-height:34.2572px;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed,  Medium';text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#75507b;stroke:none;stroke-width:2.26772;stroke-linecap:round;stroke-dasharray:none"
+         x="808.95758"
+         y="892.11377"
+         id="text19-5-1-0"><tspan
+           sodipodi:role="line"
+           id="tspan19-0-7-9"
+           x="808.95758"
+           y="892.11377">LAST ACK</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:29.3333px;line-height:34.2572px;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed,  Medium';text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#c17d11;stroke:none;stroke-width:2.26772;stroke-linecap:round;stroke-dasharray:none"
+         x="1059.5886"
+         y="829.69141"
+         id="text19-5-1-7"><tspan
+           sodipodi:role="line"
+           id="tspan19-0-7-3"
+           x="1059.5886"
+           y="829.69141">TIME WAIT</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:29.3333px;line-height:34.2572px;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed,  Medium';text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#4c566a;stroke:none;stroke-width:2.26772;stroke-linecap:round;stroke-dasharray:none"
+         x="1059.6244"
+         y="892.11377"
+         id="text19-5-1-0-6"><tspan
+           sodipodi:role="line"
+           id="tspan19-0-7-9-5"
+           x="1059.6244"
+           y="892.11377"
+           style="fill:#75507b">CLOSED</tspan></text>
+      <g
+         id="g18-8-9"
+         transform="translate(604.84634,-41.627414)">
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:32px;line-height:37.3715px;font-family:Roboto;-inkscape-font-specification:'Roboto Bold';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#2e3440;stroke:none;stroke-width:2.26772;stroke-linecap:round;stroke-dasharray:none"
+           x="104.26797"
+           y="647.40344"
+           id="text8-3-3-4-7"><tspan
+             sodipodi:role="line"
+             id="tspan8-6-6-3-5"
+             x="104.26797"
+             y="647.40344">Yes,</tspan><tspan
+             sodipodi:role="line"
+             x="104.26797"
+             y="684.77496"
+             id="tspan15-1-3" /></text>
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:18.6667px;line-height:19px;font-family:Roboto;-inkscape-font-specification:'Roboto Bold';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#2e3440;stroke:none;stroke-width:2.26772;stroke-linecap:round;stroke-dasharray:none"
+           x="176.33194"
+           y="631.74255"
+           id="text16-4-8"><tspan
+             sodipodi:role="line"
+             x="176.33194"
+             y="631.74255"
+             id="tspan17-0-1"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:19px;font-family:Roboto;-inkscape-font-specification:Roboto">but it <tspan
+   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:19px;font-family:Roboto;-inkscape-font-specification:'Roboto Bold'"
+   id="tspan18-2-3">has not</tspan></tspan><tspan
+             sodipodi:role="line"
+             x="176.33194"
+             y="650.74255"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:19px;font-family:Roboto;-inkscape-font-specification:Roboto"
+             id="tspan35">been ACKed yet</tspan></text>
+      </g>
+      <g
+         id="g18-8-9-4"
+         transform="translate(93.972687,170.06628)">
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:32px;line-height:37.3715px;font-family:Roboto;-inkscape-font-specification:'Roboto Bold';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#2e3440;stroke:none;stroke-width:2.26772;stroke-linecap:round;stroke-dasharray:none"
+           x="137.93134"
+           y="661.26483"
+           id="text8-3-3-4-7-3"><tspan
+             sodipodi:role="line"
+             id="tspan8-6-6-3-5-3"
+             x="137.93134"
+             y="661.26483">Yes,</tspan><tspan
+             sodipodi:role="line"
+             x="137.93134"
+             y="698.63635"
+             id="tspan15-1-3-3" /></text>
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:18.6667px;line-height:19px;font-family:Roboto;-inkscape-font-specification:'Roboto Bold';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#2e3440;stroke:none;stroke-width:2.26772;stroke-linecap:round;stroke-dasharray:none"
+           x="209.99532"
+           y="645.60394"
+           id="text16-4-8-8"><tspan
+             sodipodi:role="line"
+             x="209.99532"
+             y="645.60394"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:19px;font-family:Roboto;-inkscape-font-specification:Roboto"
+             id="tspan35-4"><tspan
+   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Roboto;-inkscape-font-specification:'Roboto Bold'"
+   id="tspan37">after</tspan> we</tspan><tspan
+             sodipodi:role="line"
+             x="209.99532"
+             y="664.60394"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:19px;font-family:Roboto;-inkscape-font-specification:Roboto"
+             id="tspan36">sent ours</tspan></text>
+      </g>
+      <g
+         id="g18-8-9-4-9"
+         transform="translate(93.972687,232.48864)">
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:32px;line-height:37.3715px;font-family:Roboto;-inkscape-font-specification:'Roboto Bold';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#2e3440;stroke:none;stroke-width:2.26772;stroke-linecap:round;stroke-dasharray:none"
+           x="137.93134"
+           y="661.26483"
+           id="text8-3-3-4-7-3-7"><tspan
+             sodipodi:role="line"
+             id="tspan8-6-6-3-5-3-7"
+             x="137.93134"
+             y="661.26483">Yes,</tspan><tspan
+             sodipodi:role="line"
+             x="137.93134"
+             y="698.63635"
+             id="tspan15-1-3-3-6" /></text>
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:18.6667px;line-height:19px;font-family:Roboto;-inkscape-font-specification:'Roboto Bold';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#2e3440;stroke:none;stroke-width:2.26772;stroke-linecap:round;stroke-dasharray:none"
+           x="209.99532"
+           y="645.60394"
+           id="text16-4-8-8-4"><tspan
+             sodipodi:role="line"
+             x="209.99532"
+             y="645.60394"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:19px;font-family:Roboto;-inkscape-font-specification:Roboto"
+             id="tspan35-4-3"><tspan
+   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Roboto;-inkscape-font-specification:'Roboto Bold'"
+   id="tspan38">before</tspan> we</tspan><tspan
+             sodipodi:role="line"
+             x="209.99532"
+             y="664.60394"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:19px;font-family:Roboto;-inkscape-font-specification:Roboto"
+             id="tspan36-0">sent ours</tspan></text>
+      </g>
+      <path
+         style="fill:none;stroke:#2e3440;stroke-width:2.26772;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:0;marker-end:url(#ArrowWideRounded)"
+         d="m 650.99669,706.21407 h 75.61142"
+         id="path39" />
+      <path
+         style="fill:none;stroke:#2e3440;stroke-width:2.26772;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:0;marker-end:url(#ArrowWideRounded-9)"
+         d="m 642.0858,881.94062 h 84.52231"
+         id="path39-4"
+         sodipodi:nodetypes="cc" />
+      <path
+         style="fill:none;stroke:#2e3440;stroke-width:2.26772;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:0;marker-end:url(#ArrowWideRounded-1)"
+         d="m 885.23433,706.21407 h 90.46291"
+         id="path39-8"
+         sodipodi:nodetypes="cc" />
+      <path
+         style="fill:none;stroke:#2e3440;stroke-width:2.26772;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:0;marker-end:url(#ArrowWideRounded-1-0)"
+         d="m 885.23433,819.26434 h 90.46291"
+         id="path39-8-3"
+         sodipodi:nodetypes="cc" />
+      <path
+         style="fill:none;stroke:#2e3440;stroke-width:2.26772;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:0;marker-end:url(#ArrowWideRounded-1-03)"
+         d="m 885.23433,881.6867 h 90.46291"
+         id="path39-8-39"
+         sodipodi:nodetypes="cc" />
+      <path
+         style="fill:none;stroke:#2e3440;stroke-width:2.26772;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:0;marker-end:url(#marker41)"
+         d="M 557.07639,729.21724 V 855.93637"
+         id="path40"
+         sodipodi:nodetypes="cc" />
+      <path
+         style="fill:none;stroke:#2e3440;stroke-width:2.26772;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:0;marker-end:url(#ArrowWide)"
+         d="m 808.74708,730.19819 v 63.77883"
+         id="path42" />
+      <path
+         style="fill:none;stroke:#2e3440;stroke-width:2.26772;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:0;marker-end:url(#ArrowWide-9)"
+         d="m 1059.6029,730.19819 v 63.77883"
+         id="path42-9" />
+      <g
+         id="g42"
+         transform="translate(95.041818,93.015865)">
+        <rect
+           style="fill:#d8dee9;stroke:#2e3440;stroke-width:2.26772;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:0"
+           id="rect42"
+           width="673.50171"
+           height="23.803595"
+           x="368.95441"
+           y="653.00391"
+           ry="6.3004727" />
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:18.6667px;line-height:6.04545px;font-family:Roboto;-inkscape-font-specification:'Roboto Bold';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#2e3440;stroke:none;stroke-width:2.26772;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:0"
+           x="653.14148"
+           y="670.85657"
+           id="text42"><tspan
+             sodipodi:role="line"
+             id="tspan42"
+             x="653.14148"
+             y="670.85657">FIN received</tspan></text>
+      </g>
+      <g
+         id="g42-8"
+         transform="rotate(-90,786.4613,756.26988)">
+        <rect
+           style="fill:#d8dee9;stroke:#2e3440;stroke-width:2.26772;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:0"
+           id="rect42-6"
+           width="223.99675"
+           height="23.803589"
+           x="639.2514"
+           y="653.00391"
+           ry="6.3004727" />
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:18.6667px;line-height:6.04545px;font-family:Roboto;-inkscape-font-specification:'Roboto Bold';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#2e3440;stroke:none;stroke-width:2.26772;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:0"
+           x="715.84412"
+           y="670.85657"
+           id="text42-2"><tspan
+             sodipodi:role="line"
+             id="tspan42-8"
+             x="715.84412"
+             y="670.85657">FIN sent</tspan></text>
+      </g>
+      <g
+         id="g42-8-4"
+         transform="rotate(-90,904.29299,638.43819)">
+        <rect
+           style="fill:#d8dee9;stroke:#2e3440;stroke-width:2.26772;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:0"
+           id="rect42-6-0"
+           width="223.99675"
+           height="23.803589"
+           x="639.2514"
+           y="653.00391"
+           ry="6.3004727" />
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:18.6667px;line-height:6.04545px;font-family:Roboto;-inkscape-font-specification:'Roboto Bold';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#2e3440;stroke:none;stroke-width:2.26772;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:0"
+           x="695.4502"
+           y="670.85657"
+           id="text42-2-6"><tspan
+             sodipodi:role="line"
+             id="tspan42-8-2"
+             x="695.4502"
+             y="670.85657">ACK received</tspan></text>
+      </g>
+      <path
+         style="fill:none;stroke:#4c566a;stroke-width:1.51181;stroke-linecap:round;stroke-dasharray:4.53543, 4.53543;stroke-dashoffset:0;marker-end:url(#marker44)"
+         d="m 1059.1562,836.9823 v 25.55386"
+         id="path43" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.6667px;line-height:4.75px;font-family:Roboto;-inkscape-font-specification:Roboto;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#4c566a;stroke:none;stroke-width:1.51181;stroke-linecap:round;stroke-dasharray:4.53543, 4.53543;stroke-dashoffset:0"
+         x="1067.5575"
+         y="853.3183"
+         id="text44"><tspan
+           sodipodi:role="line"
+           id="tspan44"
+           x="1067.5575"
+           y="853.3183">time passed</tspan></text>
+    </g>
+    <g
+       id="g48"
+       transform="translate(0,16.000001)">
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:58.6667px;line-height:68.5144px;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed,  Light';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#2e3440;stroke:none;stroke-width:2.26772;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:0"
+         x="201.83429"
+         y="453.60663"
+         id="text29"><tspan
+           sodipodi:role="line"
+           id="tspan29"
+           x="201.83429"
+           y="453.60663">How TCP connections die</tspan></text>
+      <rect
+         style="fill:#c17d11;stroke:none;stroke-width:1.51181;stroke-linecap:round;stroke-dasharray:4.53543, 4.53543;stroke-dashoffset:0"
+         id="rect44"
+         width="20.79208"
+         height="20.79208"
+         x="854.55316"
+         y="407.51779" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.3333px;line-height:5.61364px;font-family:Roboto;-inkscape-font-specification:Roboto;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#c17d11;stroke:none;stroke-width:1.51181;stroke-linecap:round;stroke-dasharray:4.53543, 4.53543;stroke-dashoffset:0"
+         x="886.17694"
+         y="424.87769"
+         id="text45"><tspan
+           sodipodi:role="line"
+           id="tspan45"
+           x="886.17694"
+           y="424.87769"
+           style="font-size:17.3333px;line-height:5.61364px;fill:#2e3440"><tspan
+   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:17.3333px;line-height:5.61364px;font-family:Roboto;-inkscape-font-specification:'Roboto Bold';fill:#2e3440"
+   id="tspan46">Active close</tspan> path (we sent FIN first)</tspan></text>
+      <rect
+         style="fill:#75507b;stroke:none;stroke-width:1.51181;stroke-linecap:round;stroke-dasharray:4.53543, 4.53543;stroke-dashoffset:0"
+         id="rect44-9"
+         width="20.79208"
+         height="20.79208"
+         x="854.55316"
+         y="439.12286" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.3333px;line-height:5.61364px;font-family:Roboto;-inkscape-font-specification:Roboto;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#c17d11;stroke:none;stroke-width:1.51181;stroke-linecap:round;stroke-dasharray:4.53543, 4.53543;stroke-dashoffset:0"
+         x="886.17694"
+         y="456.48276"
+         id="text45-3"><tspan
+           sodipodi:role="line"
+           id="tspan45-3"
+           x="886.17694"
+           y="456.48276"
+           style="font-size:17.3333px;line-height:5.61364px;fill:#2e3440"><tspan
+   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:17.3333px;line-height:5.61364px;font-family:Roboto;-inkscape-font-specification:'Roboto Bold';fill:#2e3440"
+   id="tspan46-8">Passive close</tspan> path (we got FIN first)</tspan></text>
+    </g>
+  </g>
+  <metadata
+     id="metadata48">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:title>How TCP connections die</dc:title>
+        <cc:license
+           rdf:resource="http://creativecommons.org/licenses/by/4.0/" />
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>Alba Mendez</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:language>english</dc:language>
+        <dc:subject>
+          <rdf:Bag>
+            <rdf:li>TCP</rdf:li>
+          </rdf:Bag>
+        </dc:subject>
+      </cc:Work>
+      <cc:License
+         rdf:about="http://creativecommons.org/licenses/by/4.0/">
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Reproduction" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Distribution" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#Notice" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#Attribution" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#DerivativeWorks" />
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+</svg>
